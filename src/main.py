@@ -1,3 +1,6 @@
+"""
+Provides utils to access openai api
+"""
 import os
 import openai
 from dotenv import load_dotenv

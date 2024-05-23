@@ -1,3 +1,6 @@
+"""
+Provides utils to access openai api
+"""
 import openai
 import numpy as np
 from numpy.linalg import norm
