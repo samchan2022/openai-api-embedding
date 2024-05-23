@@ -1,8 +1,9 @@
 import os
 import openai
-import numpy as np
 from dotenv import load_dotenv
-from utils import get_embeddings, cosine_similarity, recommend
+# from utils import get_embeddings, cosine_similarity, recommend
+# from .utils.utils import get_embeddings,  recommend
+from utils.utils import get_embeddings,  recommend
 
 # Load environment variables from .env file
 load_dotenv()
@@ -23,11 +24,11 @@ texts = [
 embeddings = get_embeddings(texts, api_url)
 
 # Input text for which to find similar recommendations
-input_text = "I love reading novels."
+INPUT_TEXT = "I love reading novels."
 
 # Get recommendations
-recommended_texts = recommend(input_text, texts, embeddings, api_url, top_k=2)
+recommended_texts = recommend(INPUT_TEXT, texts, embeddings, api_url, top_k=2)
 
 # Print the results
-print("Input text:", input_text)
+print("Input text:", INPUT_TEXT)
 print("Recommended texts:", recommended_texts)
