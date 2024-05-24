@@ -1,18 +1,20 @@
 """
 Provides utils to access openai api
 """
+
 import os
 import openai
 from dotenv import load_dotenv
+
 # from utils import get_embeddings, cosine_similarity, recommend
 # from .utils.utils import get_embeddings,  recommend
-from utils.utils import get_embeddings,  recommend
+# from openai.client import get_embeddings, recommend
+from .openai.client import OpenAIClient
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Set your API key and API URL
-openai.api_key = os.getenv("OPENAI_API_KEY")
 api_url = os.getenv("OPENAI_API_URL")
 
 # Sample texts to get embeddings
