@@ -8,8 +8,7 @@ from dotenv import load_dotenv
 
 # from utils import get_embeddings, cosine_similarity, recommend
 # from .utils.utils import get_embeddings,  recommend
-# from openai.client import get_embeddings, recommend
-from .openai.client import OpenAIClient
+from open_ai.client import OpenAIClient
 
 # Load environment variables from .env file
 load_dotenv()
@@ -25,14 +24,16 @@ texts = [
     "Cooking is a great way to relax.",
 ]
 
+client = OpenAIClient(api_url)
+
 # Get embeddings for the sample texts
-embeddings = get_embeddings(texts, api_url)
+embeddings = client.get_embeddings(texts)
 
 # Input text for which to find similar recommendations
 INPUT_TEXT = "I love reading novels."
 
 # Get recommendations
-recommended_texts = recommend(INPUT_TEXT, texts, embeddings, api_url, top_k=2)
+recommended_texts = client.recommend(INPUT_TEXT, texts, embeddings, top_k=2)
 
 # Print the results
 print("Input text:", INPUT_TEXT)
